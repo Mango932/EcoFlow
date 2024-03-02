@@ -1,4 +1,4 @@
-# Crop Recommendation System
+# EcoFlow Crop Recommendation System
 
 ## Overview
 This project aims to build a crop recommendation system based on agricultural data. The dataset used contains information about various crops and their requirements such as Nitrogen, Phosphorus, Potassium (NPK) levels, temperature, humidity, pH, and rainfall. The goal is to predict the best crop to be cultivated based on these factors.
