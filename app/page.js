@@ -7,9 +7,25 @@ import { Loader } from "@googlemaps/js-api-loader";
 import SoilDataForm from "./SoilDataForm";
 
 export default function Home() {
-    const handleSubmit = (formData) => {
-        // Handle form submission here, e.g., send data to backend
-        console.log(formData);
+    const handleSubmit = async (formData) => {
+        try {
+            const response = await fetch('http://localhost:8000/', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to submit data");
+            }
+
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error(error);
+        }  
     };
 
     const mapRef = useRef(null);
