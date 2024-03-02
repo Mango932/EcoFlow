@@ -27,7 +27,7 @@ const SoilDataForm = ({ onSubmit }) => {
     return (
         <form
             onSubmit={handleSubmit}
-            className=" p-6 rounded-lg space-y-4 text-gray-800"
+            className=" p-6 rounded-lg space-y-4 text-gray-800 "
         >
             <div className="flex flex-col">
                 <label className="text-gray-800 mb-1">
