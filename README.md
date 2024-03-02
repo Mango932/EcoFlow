@@ -22,7 +22,7 @@ Several classification models are trained and evaluated using the dataset:
 - Gradient Boosting
 - Extra Trees
 
-Random Forest is selected as the final model due to its high accuracy of 99.09%.
+Naive Bayes is selected as the final model due to its high accuracy of 99.54%.
 
 ## Usage
 The trained Random Forest model can be used to make crop recommendations based on user input. A sample function `recommendation` is provided to demonstrate how the model can be used to predict the best crop for a given set of environmental conditions.
