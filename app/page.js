@@ -29,6 +29,27 @@ export default function Home() {
         }  
     };
 
+    const handleSubmitLocation = async (position) => {
+        try {
+            const response = await fetch('http://localhost:8000/', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(position),
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to submit data");
+            }
+
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error(error);
+        }  
+    };
+
     const mapRef = useRef(null);
     let marker;
 
@@ -64,6 +85,9 @@ export default function Home() {
                     map: map,
                 });
                 marker = newMarker;
+                
+                console.log(newMarker)
+                handleSubmitLocation(newMarker);
             });
         };
 

@@ -5,9 +5,9 @@ class RequestHandler(BaseHTTPRequestHandler):
     def _set_headers(self):
         self.send_response(200)
         self.send_header('Content-Type', 'application/json')
-        self.send_header('Access-Control-Allow-Origin', '*')  # Allow requests from any origin
-        self.send_header('Access-Control-Allow-Methods', 'POST')  # Allow POST requests
-        self.send_header('Access-Control-Allow-Headers', 'Content-Type')  # Allow 'Content-Type' header
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'POST')e
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
         self.end_headers()
 
     def do_OPTIONS(self):
@@ -18,6 +18,7 @@ class RequestHandler(BaseHTTPRequestHandler):
         post_data = self.rfile.read(content_length)
 
         data = json.loads(post_data.decode('utf-8'))
+        #! handle data here
         print("Received data:", data)
 
         self._set_headers()
