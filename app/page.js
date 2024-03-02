@@ -10,7 +10,7 @@ import { isNull } from "util";
 export default function Home() {
     const handleSubmit = async (formData) => {
         try {
-            const response = await fetch('http://localhost:8000/', {
+            const response = await fetch("http://localhost:8000/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -26,12 +26,12 @@ export default function Home() {
             console.log(data);
         } catch (error) {
             console.error(error);
-        }  
+        }
     };
 
     const handleSubmitLocation = async (position) => {
         try {
-            const response = await fetch('http://localhost:8000/', {
+            const response = await fetch("http://localhost:8000/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -47,7 +47,7 @@ export default function Home() {
             console.log(data);
         } catch (error) {
             console.error(error);
-        }  
+        }
     };
 
     const mapRef = useRef(null);
@@ -63,13 +63,13 @@ export default function Home() {
             const { Map } = await loader.importLibrary("maps");
 
             const position = {
-                lat: 43,
-                lng: -79,
+                lat: 23,
+                lng: 81,
             };
 
             const mapOptions = (google.maps.MapOptions = {
                 center: position,
-                zoom: 170,
+                zoom: 5,
                 mapId: "MY_NEXTJS_MAPID",
             });
 
@@ -85,9 +85,6 @@ export default function Home() {
                     map: map,
                 });
                 marker = newMarker;
-                
-                console.log(newMarker)
-                handleSubmitLocation(newMarker);
             });
         };
 
