@@ -43,3 +43,5 @@ rainfall = 62.5
 
 recommendation = crop_recommendation.get_crop_recommendation(N, P, k, temperature, humidity, ph, rainfall)
 print(recommendation)
+
+crop_recommendation.save_to_pickle()

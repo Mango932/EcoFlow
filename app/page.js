@@ -18,7 +18,7 @@ export default function Home() {
     useEffect(() => {
         const initMap = async () => {
             const loader = new Loader({
-                apiKey: "AIzaSyB9IMr2iMXuBevoKwkQ51zToTMEkfJA-ns",
+                apiKey: "",
                 version: "weekly",
             });
 
