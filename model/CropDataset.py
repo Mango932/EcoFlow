@@ -19,7 +19,7 @@ class CropDataset:
     def get_statistics(self):
         return self.dataset.describe()
 
-file_path = "dataset\Crop_recommendation.csv"
+file_path = "data\dataset\Crop_recommendation.csv"
 crop_dataset = CropDataset(file_path)
 
 print("Num of rows:", crop_dataset.get_num_rows(), "\n")

@@ -20,7 +20,7 @@ class CropDataAnalysis:
         displot = sns.displot(self.dataset['N'])
         plt.show()
 
-file_path = "dataset\Crop_recommendation.csv"
+file_path = "data\dataset\Crop_recommendation.csv"
 crop_analysis = CropDataAnalysis(file_path)
 
 correlation_data = crop_analysis.calculate_correlation()

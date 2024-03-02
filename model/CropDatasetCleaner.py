@@ -1,6 +1,6 @@
 import pandas as pd
 
-class CropDataset:
+class CropDatasetCleaner:
     def __init__(self, file_path):
         self.file_path = file_path
         self.dataset = pd.read_csv(file_path)
@@ -24,8 +24,8 @@ class CropDataset:
     def get_dataset(self):
         return self.dataset
 
-file_path = "dataset\Crop_recommendation.csv"
-output_file = "dataset\Crop_recommendation_cleaned.csv"
+file_path = "data\dataset\Crop_recommendation.csv"
+output_file = "data\dataset\Crop_recommendation_cleaned.csv"
 crop_dataset = CropDataset(file_path)
 
 crop_dataset.change_text_to_int()

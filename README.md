@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Crop Recommendation System
 
-## Getting Started
+## Overview
+This project aims to build a crop recommendation system based on agricultural data. The dataset used contains information about various crops and their requirements such as Nitrogen, Phosphorus, Potassium (NPK) levels, temperature, humidity, pH, and rainfall. The goal is to predict the best crop to be cultivated based on these factors.
 
-First, run the development server:
+## Dataset
+The dataset contains 2200 entries with 7 features (N, P, K, temperature, humidity, pH, rainfall) and 1 target variable (crop). There are no missing values in the dataset. The dataset is explored using descriptive statistics and correlation analysis.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Preprocessing
+Categorical variables are converted to integer format using a mapping dictionary. The 'label' column is dropped from the dataset.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Model Building
+Several classification models are trained and evaluated using the dataset:
+- Logistic Regression
+- Naive Bayes
+- Support Vector Machine
+- K-Nearest Neighbors
+- Decision Tree
+- Random Forest
+- Bagging
+- AdaBoost
+- Gradient Boosting
+- Extra Trees
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Random Forest is selected as the final model due to its high accuracy of 99.09%.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Usage
+The trained Random Forest model can be used to make crop recommendations based on user input. A sample function `recommendation` is provided to demonstrate how the model can be used to predict the best crop for a given set of environmental conditions.
 
-## Learn More
+## Sample Prediction
+Using the `recommendation` function, the model predicts that Kidneybeans is the best crop to be cultivated given N=40, P=50, K=50, temperature=40.0, humidity=20, pH=100, and rainfall=100.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Model Serialization
+The trained Random Forest model is serialized using pickle for future use.
