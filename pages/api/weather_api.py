@@ -3,7 +3,7 @@ import json
 
 # Get the weather data for a given latitude and longitude
 def get_weather_data(lat, lon):
-    url = f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{lat},{lon}/lastyear?unitGroup=metric&include=days&key={get_APIKEY()}&contentType=json"
+    url = f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{lat},{lon}?unitGroup=metric&include=days&key={get_APIKEY()}&contentType=json"
 
     print(url)
 
@@ -37,7 +37,7 @@ def get_averages(data):
 
 # Get the API key from the apikey.json file
 def get_APIKEY():
-    with open('model/apikey.json') as f:
+    with open('api/apikey.json') as f:
         data = json.load(f)
     api_key = data['APIKEY']
     return api_key

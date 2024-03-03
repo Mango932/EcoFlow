@@ -5,6 +5,16 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from model.crop_recommendation import CropRecommendation
 import warnings
+from pages.api.weather_api import get_weather_data
+
+# Using the imported function
+def main():
+    # Example usage
+    weather_data = get_weather_data(lat, lon)
+    # Do something with the weather data
+
+if __name__ == "__main__":
+    main()
 
 class RequestHandler(BaseHTTPRequestHandler):
     def _set_headers(self):
@@ -24,11 +34,11 @@ class RequestHandler(BaseHTTPRequestHandler):
 
         data = json.loads(post_data.decode('utf-8'))
         print("Received data:", data)
-
+        
         if 'lat' in data and 'lng' in data:
             print("Skipping processing for lat, lng data")
             self._set_headers()
-            response = json.dumps({'location': data}).encode('utf-8')
+            response = json.dumps({'location': get_weather_data(data['lat'],data['lng'])}).encode('utf-8')
             self.wfile.write(response)
             return
 
