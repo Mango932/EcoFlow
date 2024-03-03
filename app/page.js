@@ -4,6 +4,8 @@ import Navbar from "./Navbar";
 import { useEffect, useRef, useState } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
 import SoilDataForm from "./SoilDataForm";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
     const handleSubmit = async (formData) => {
@@ -124,6 +126,7 @@ export default function Home() {
     return (
         <main className="flex min-h-screen flex-col items-center  bg-green-100">
             <Navbar />
+            <ToastContainer autoClose={1500} />
             <h1 className="text-green-700 text-4xl mt-10 font-bold">
                 Enter information or click on the map
             </h1>

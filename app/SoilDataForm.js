@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 const SoilDataForm = ({ onSubmit, formData, handleChanges }) => {
     const handleChange = (e) => {
@@ -11,6 +12,11 @@ const SoilDataForm = ({ onSubmit, formData, handleChanges }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const isEmpty = Object.values(formData).some(value => value === '');
+        if (!formData.N || !formData.P || !formData.K || !formData.temperature || !formData.humidity || !formData.ph || !formData.rainfall) {
+            toast.error("Please fill in all fields.");
+            return;
+        }
         onSubmit(formData);
     };
 
