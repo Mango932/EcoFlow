@@ -30,7 +30,8 @@ def get_averages(data):
     averages['temperature'] /= len(days)
     averages['rainfall'] /= 10
     averages['humidity'] /= len(days)
-    averages['humidity'] = averages['humidity'] * 36.5
+
+    averages['rainfall'] = averages['rainfall'] * 36.5
     
     for key in averages:
         averages[key] = round(averages[key], 2)
