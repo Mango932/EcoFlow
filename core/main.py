@@ -4,6 +4,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from model.crop_recommendation import CropRecommendation
+import warnings
 
 class RequestHandler(BaseHTTPRequestHandler):
     def _set_headers(self):
@@ -22,11 +23,19 @@ class RequestHandler(BaseHTTPRequestHandler):
         post_data = self.rfile.read(content_length)
 
         data = json.loads(post_data.decode('utf-8'))
-        #! handle data here
         print("Received data:", data)
 
-        crop_recommendations = CropRecommendation("data/training_sets/X_train.csv",
-         "data/training_sets/Y_train.csv")
+        if 'lat' in data and 'lng' in data:
+            print("Skipping processing for lat, lng data")
+            self._set_headers()
+            response = json.dumps({'location': data}).encode('utf-8')
+            self.wfile.write(response)
+            return
+
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            crop_recommendations = CropRecommendation("data/training_sets/X_train.csv",
+            "data/training_sets/Y_train.csv")
         recommendations = crop_recommendations.get_crop_recommendation(
             data['N'], data['P'], data['K'], data['temperature'], 
             data['humidity'], data['ph'], data['rainfall'])
@@ -35,6 +44,8 @@ class RequestHandler(BaseHTTPRequestHandler):
         self._set_headers()
         response = json.dumps({'recommendations': recommendations}).encode('utf-8')
         self.wfile.write(response)
+
+
 
 def run(server_class=HTTPServer, handler_class=RequestHandler, port=8000):
     server_address = ('', port)

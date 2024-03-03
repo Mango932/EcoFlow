@@ -88,8 +88,7 @@ export default function Home() {
                     lat: newMarker.getPosition().lat(),
                     lng: newMarker.getPosition().lng(),
                 };
-
-                console.log(position);
+                
                 handleSubmitLocation(position);
             });
         };
