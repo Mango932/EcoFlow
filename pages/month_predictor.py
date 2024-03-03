@@ -25,7 +25,7 @@ def get_next_best_planting_month(crop, longitude, latitude):
         return "Crop or region not found in the database."
         
     if months == "All-year":
-        return f"Based on the provided information, planting at any time of the year would result in maximum potential crop yield."
+        return f"Given the information provided, planting at any time of the year would yield the highest possible crop output."
 
     month_ranges = []
     for month_range in months.split(','):
@@ -51,7 +51,8 @@ def get_next_best_planting_month(crop, longitude, latitude):
             next_best_month = datetime(today.year, month, 1).strftime("%b")
             break
     if next_best_month:
-        return f"Based on the provided information, the next optimal month for planting {crop} is {get_proper_name(next_best_month)}."
+        return f"
+Based on the information provided, the next ideal month for planting {crop} is {get_proper_name(next_best_month)}."
     else:
         return "No suitable planting month found"
 
