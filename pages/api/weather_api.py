@@ -3,7 +3,7 @@ import json
 
 # Get the weather data for a given latitude and longitude
 def get_weather_data(lat, lon):
-    url = f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{lat},{lon}/last10days?unitGroup=metric&include=days&key={get_APIKEY()}&contentType=json"
+    url = f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{lat},{lon}?unitGroup=metric&include=days&key={get_APIKEY()}&contentType=json"
 
     print(url)
 

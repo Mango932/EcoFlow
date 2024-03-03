@@ -1,20 +1,20 @@
 Crop,North,East,South,West
-Rice,Jun-Jul,"Jun-Jul, Apr-May ","Jun-Jul, Sep-Oct","Jun-Jul, Apr-May "
-Maize ,Apr-May,"Apr-May, Oct-Nov","May-Jun, Sep-Oct","Apr-May, Oct-Nov"
-Jute,Mar-Apr,"Mar-Apr, May-Jun ","Mar-Apr, May-Jun ","Mar-Apr, May-Jun "
-Cotton,Apr-May,"Apr-May, Jun-Jul","Apr-May, Jun-Jul","Apr-May, Jun-Jul"
+Rice,Jun-Jul,"Jun-Jul,Apr-May ","Jun-Jul,Sep-Oct","Jun-Jul,Apr-May "
+Maize,Apr-May,"Apr-May,Oct-Nov","May-Jun, Sep-Oct","Apr-May,Oct-Nov"
+Jute,Mar-Apr,"Mar-Apr, May-Jun ","Mar-Apr, May-Jun ","Mar-Apr,May-Jun "
+Cotton,Apr-May,"Apr-May, Jun-Jul","Apr-May, Jun-Jul","Apr-May,Jun-Jul"
 Coconut,All-year,All-year,All-year,All-year
 Papaya,All-year,All-year,All-year,All-year
-Orange,Feb-Mar,"Jun-Jul , Sep-Oct ",Jun-Jul,Jun-Jul
+Orange,Feb-Mar,"Jun-Jul,Sep-Oct ",Jun-Jul,Jun-Jul
 Banana,All-year,All-year,All-year,All-year
-Grapes,Feb-Mar,Jan-Feb ,Jan-Feb,Jan-Feb
+Grapes,Feb-Mar,Jan-Feb,Jan-Feb,Jan-Feb
 Mango,Feb-Mar,Feb-Mar,Feb-Mar,Feb-Mar
-Pomegranate,Feb-Mar,Feb-Mar ,Feb-Mar ,Feb-Mar 
+Pomegranate,Feb-Mar,Feb-Mar,Feb-Mar ,Feb-Mar 
 Lentil,Oct-Nov,Oct-Nov,Oct-Nov,Oct-Nov
-Blackgram,"Jun-Jul, Oct-Nov","Jun-Jul, Oct-Nov","Jun-Jul, Sep-Oct",Oct-Nov
-Mungbean ,"Jun-Jul, Oct-Nov","Jun-Jul, Oct-Nov","Jun-Jul, Sep-Oct",Oct-Nov
-Mothbeans ,Jun-Jul,"Jun-Jul, Sep-Oct","Jun-Jul, Sep-Oct","Jun-Jul, Sep-Oct"
-Pigeonpeas ,Jun-Jul,"Jun-Jul, Sep-Oct","Jun-Jul, Sep-Oct","Jun-Jul, Sep-Oct"
-Kidneybeans ,"Jun-Jul, Oct-Nov","Jun-Jul, Oct-Nov","Jun-Jul, Sep-Oct",Oct-Nov
-Chickpea ,Oct-Nov,Oct-Nov,Oct-Nov,Oct-Nov
-Coffee,May-Jun,May-Jun ,May-Jun ,May-Jun 
+Blackgram,"Jun-Jul,Oct-Nov","Jun-Jul,Oct-Nov","Jun-Jul,Sep-Oct",Oct-Nov
+Mungbean,"Jun-Jul, Oct-Nov","Jun-Jul,Oct-Nov","Jun-Jul,Sep-Oct",Oct-Nov
+Mothbeans,Jun-Jul,"Jun-Jul,Sep-Oct","Jun-Jul,Sep-Oct","Jun-Jul,Sep-Oct"
+Pigeonpeas,Jun-Jul,"Jun-Jul,Sep-Oct","Jun-Jul,Sep-Oct","Jun-Jul,Sep-Oct"
+Kidneybeans,"Jun-Jul,Oct-Nov","Jun-Jul,Oct-Nov","Jun-Jul, Sep-Oct",Oct-Nov
+Chickpea,Oct-Nov,Oct-Nov,Oct-Nov,Oct-Nov
+Coffee,May-Jun,May-Jun,May-Jun,May-Jun 
