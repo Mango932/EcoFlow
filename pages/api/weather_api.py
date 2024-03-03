@@ -3,7 +3,7 @@ import json
 
 # Get the weather data for a given latitude and longitude
 def get_weather_data(lat, lon):
-    url = f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{lat},{lon}/last50days?unitGroup=metric&include=days&key={get_APIKEY()}&contentType=json"
+    url = f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{lat},{lon}/last10days?unitGroup=metric&include=days&key={get_APIKEY()}&contentType=json"
 
     print(url)
 
@@ -31,7 +31,8 @@ def get_averages(data):
     averages['rainfall'] /= 10
     averages['humidity'] /= len(days)
 
-    averages['rainfall'] = averages['rainfall'] * 7.3
+    # averages['rainfall'] = averages['rainfall'] * 7.3
+    averages['rainfall'] = averages['rainfall'] * 36.5
     
     for key in averages:
         averages[key] = round(averages[key], 2)
