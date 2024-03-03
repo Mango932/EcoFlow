@@ -24,6 +24,7 @@ export default function Home() {
 
             const data = await response.json();
             setResult(data.recommendations);
+            setBestMonth(data.best_month);
             console.log(data.recommendations);
         } catch (error) {
             console.error(error);
@@ -122,6 +123,7 @@ export default function Home() {
     };
 
     const [result, setResult] = useState([]);
+    const [bestMonth, setBestMonth] = useState(null);
 
     return (
         <main className="flex min-h-screen flex-col items-center  bg-green-100">
@@ -146,21 +148,28 @@ export default function Home() {
             ) : (
                 <></>
             )}
-            {result.map(
-                ([crop, percent], index) =>
-                    // Check if percent is greater than 0
-                    percent > 0 && (
-                        <div
-                            key={index}
-                            className="text-black w-96 bg-green-200 mb-2 p-3"
-                        >
-                            <div className="flex justify-between">
-                                <div>{crop}</div>
-                                <div>{percent}%</div>
-                            </div>
-                        </div>
-                    )
-            )}
+    {result.map(([crop, percent], index) => (
+       percent > 0 ? (
+            <div
+                key={index}
+                className="text-black w-96 bg-green-200 mb-2 p-3"
+            >
+                <div className="flex justify-between">
+                    <div>{crop}</div>
+                    <div>{crop === 'best_month' ? percent : `${percent}%`}</div>
+                </div>
+            </div>
+        ) : null
+    ))}
+    {bestMonth ? (
+        <div
+            className="text-black w-96 bg-green-200 mb-2 p-3"   
+        >
+            <div className="flex justify-between">
+                <div>{bestMonth}</div>
+            </div>
+        </div>
+    ) : null}
             <div className="w-full h-24 bg-green-100 mt-20"></div>
         </main>
     );
