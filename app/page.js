@@ -153,16 +153,16 @@ export default function Home() {
                             <div className="flex">
                                 <div className="">{crop}</div>
                             </div>
-                            {index == 0 ? <div className="text-black  mb-2 p-3">
+                            <div className="text-black  mb-2 p-3">
                     {crop === "best_month"
                         ? percent
                         : `${percent}%`}
                     
-                </div> : null}
+                </div>
                         </div>
                     </div>
                     
-                {bestMonth ? (
+                {bestMonth && index == 0 ? (
                                 <div className="flex justify-between bg-green-200 p-2  items-center border border-black rounded-md text-black w-[400px]">
                                     <div>{bestMonth}</div>
                                 </div>
