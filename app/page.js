@@ -43,7 +43,7 @@ export default function Home() {
             }
 
             const data = await response.json();
-            setResult(data.recommendation);
+            console.log(data);
         } catch (error) {
             console.error(error);
         }
