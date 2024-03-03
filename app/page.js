@@ -147,24 +147,28 @@ export default function Home() {
             )}
             {result.map(([crop, percent], index) =>
                 percent > 0 ? (
-                    <div key={index} className="text-black  mb-2 p-3 w-[880px]">
+                    <div>
+                    <div key={index} className="text-black  mb-2 p-3 w-[400px]">
                         <div className="flex justify-between bg-green-200 p-2  items-center border border-black rounded-md">
                             <div className="flex">
-                                <div className="mr-2">
-                                    {crop === "best_month"
-                                        ? percent
-                                        : `${percent}%`}
-                                    :
-                                </div>
-                                <div className="mr-2">{crop}</div>
+                                <div className="">{crop}</div>
                             </div>
-                            {bestMonth ? (
-                                <div className="flex justify-between text-black">
+                            {index == 0 ? <div className="text-black  mb-2 p-3">
+                    {crop === "best_month"
+                        ? percent
+                        : `${percent}%`}
+                    
+                </div> : null}
+                        </div>
+                    </div>
+                    
+                {bestMonth ? (
+                                <div className="flex justify-between bg-green-200 p-2  items-center border border-black rounded-md text-black w-[400px]">
                                     <div>{bestMonth}</div>
                                 </div>
                             ) : null}
-                        </div>
                     </div>
+                    
                 ) : null
             )}
 
