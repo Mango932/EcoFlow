@@ -1,12 +1,16 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from model.crop_recommendation import CropRecommendation
 
 class RequestHandler(BaseHTTPRequestHandler):
     def _set_headers(self):
         self.send_response(200)
         self.send_header('Content-Type', 'application/json')
         self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header('Access-Control-Allow-Methods', 'POST')e
+        self.send_header('Access-Control-Allow-Methods', 'POST')
         self.send_header('Access-Control-Allow-Headers', 'Content-Type')
         self.end_headers()
 
@@ -20,6 +24,11 @@ class RequestHandler(BaseHTTPRequestHandler):
         data = json.loads(post_data.decode('utf-8'))
         #! handle data here
         print("Received data:", data)
+        crop_recommendation = CropRecommendation("data/training_sets/X_train.csv", "data/training_sets/Y_train.csv")
+        recommendation = crop_recommendation.get_crop_recommendation(
+            data['N'], data['P'], data['K'], data['temperature'], 
+            data['humidity'], data['ph'], data['rainfall'])
+        print(recommendation)
 
         self._set_headers()
         response = json.dumps({'message': 'Data received'}).encode('utf-8')

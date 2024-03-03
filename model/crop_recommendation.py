@@ -16,6 +16,7 @@ class CropRecommendation:
         }
 
     def recommendation(self, N, P, k, temperature, humidity, ph, rainfall):
+        N, P, k, temperature, humidity, ph, rainfall = float(N), float(P), float(k), float(temperature), float(humidity), float(ph), float(rainfall)
         features = np.array([[N, P, k, temperature, humidity, ph, rainfall]])
         prediction = self.classifier.predict(features).reshape(1, -1)
         return prediction[0]
@@ -28,20 +29,3 @@ class CropRecommendation:
         else:
             return "Sorry are not able to recommend a proper crop for this environment"
 
-X_train_path = "data/training_sets/X_train.csv"
-Y_train_path = "data/training_sets/Y_train.csv"
-
-crop_recommendation = CropRecommendation(X_train_path, Y_train_path)
-
-N = 88
-P = 38
-k = 15
-temperature = 25.1
-humidity = 65.9
-ph = 6.5
-rainfall = 62.5
-
-recommendation = crop_recommendation.get_crop_recommendation(N, P, k, temperature, humidity, ph, rainfall)
-print(recommendation)
-
-crop_recommendation.save_to_pickle()
