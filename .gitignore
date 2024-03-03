@@ -37,3 +37,6 @@ next-env.d.ts
 
 # API keys
 apikey.json
+
+# __pycache__
+__pycache__/
