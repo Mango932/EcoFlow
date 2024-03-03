@@ -21,7 +21,8 @@ export default function Home() {
             }
 
             const data = await response.json();
-            console.log(data);
+            setResult(data.recommendations);
+            console.log(data.recommendations);
         } catch (error) {
             console.error(error);
         }
@@ -42,7 +43,7 @@ export default function Home() {
             }
 
             const data = await response.json();
-            console.log(data);
+            setResult(data.recommendation);
         } catch (error) {
             console.error(error);
         }
@@ -111,6 +112,8 @@ export default function Home() {
         setFormData(newFormData);
     };
 
+    const [result, setResult] = useState([]);
+
     return (
         <main className="flex min-h-screen flex-col items-center  bg-green-100">
             <Navbar />
@@ -126,6 +129,24 @@ export default function Home() {
 
                 <div style={{ height: "600px", width: "600px" }} ref={mapRef} />
             </div>
+            <h1 className="text-green-700 text-4xl font-bold mb-10">
+                Recommended Crops
+            </h1>
+            {result.map(
+                ([crop, percent], index) =>
+                    // Check if percent is greater than 0
+                    percent > 0 && (
+                        <div
+                            key={index}
+                            className="text-black w-96 bg-green-200 mb-2 p-3"
+                        >
+                            <div className="flex justify-between">
+                                <div>{crop}</div>
+                                <div>{percent}%</div>
+                            </div>
+                        </div>
+                    )
+            )}
             <div className="w-full h-24 bg-green-100 mt-20"></div>
         </main>
     );

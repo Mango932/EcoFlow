@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Slider } from "@nextui-org/react";
 
 const SoilDataForm = ({ onSubmit, formData, handleChanges }) => {
     const handleChange = (e) => {
