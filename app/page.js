@@ -43,7 +43,15 @@ export default function Home() {
             }
 
             const data = await response.json();
-            console.log(data);
+            setFormData({
+                N: "",
+                P: "",
+                K: "",
+                temperature: data.location.temperature,
+                humidity: data.location.humidity,
+                ph: "",
+                rainfall: data.location.rainfall,
+            });
         } catch (error) {
             console.error(error);
         }
@@ -128,9 +136,13 @@ export default function Home() {
 
                 <div style={{ height: "600px", width: "600px" }} ref={mapRef} />
             </div>
-            <h1 className="text-green-700 text-4xl font-bold mb-10">
-                Recommended Crops
-            </h1>
+            {result.length != 0 ? (
+                <h1 className="text-green-700 text-4xl font-bold mb-10">
+                    Recommended Crops
+                </h1>
+            ) : (
+                <></>
+            )}
             {result.map(
                 ([crop, percent], index) =>
                     // Check if percent is greater than 0

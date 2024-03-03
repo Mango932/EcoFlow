@@ -25,7 +25,7 @@ const Navbar = () => {
     ];
 
     return (
-        <div className="flex justify-around items-center w-full px-20 py-5 text-white nav bg-green-200 ">
+        <div className="flex justify-around items-center w-full px-20 py-2 text-white nav bg-green-200 ">
             <div className="">
                 <a href="" target="_blank" rel="noreferrer">
                     <Image
