@@ -51,8 +51,7 @@ def get_next_best_planting_month(crop, longitude, latitude):
             next_best_month = datetime(today.year, month, 1).strftime("%b")
             break
     if next_best_month:
-        return f"
-Based on the information provided, the next ideal month for planting {crop} is {get_proper_name(next_best_month)}."
+        return f"Based on the information provided, the next ideal month for planting {crop} is {get_proper_name(next_best_month)}."
     else:
         return "No suitable planting month found"
 
