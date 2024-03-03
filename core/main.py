@@ -29,7 +29,7 @@ class RequestHandler(BaseHTTPRequestHandler):
         if 'lat' in data and 'lng' in data:
             print("Skipping processing for lat, lng data")
             self._set_headers()
-            response = json.dumps({'Metrics': get_weather_data(data['lat'],data['lng'])}).encode('utf-8')
+            response = json.dumps({'Location': get_weather_data(data['lat'],data['lng'])}).encode('utf-8')
             self.wfile.write(response)
             return
 
