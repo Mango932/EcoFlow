@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
 import SoilDataForm from "./SoilDataForm";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
     const handleSubmit = async (formData) => {
@@ -46,15 +46,13 @@ export default function Home() {
             }
 
             const data = await response.json();
-            setFormData({
-                N: "",
-                P: "",
-                K: "",
+            console.log(data);
+            setFormData((prevState) => ({
+                ...prevState,
                 temperature: data.location.temperature,
                 humidity: data.location.humidity,
-                ph: "",
                 rainfall: data.location.rainfall,
-            });
+            }));
         } catch (error) {
             console.error(error);
         }
@@ -100,7 +98,8 @@ export default function Home() {
                     lat: newMarker.getPosition().lat(),
                     lng: newMarker.getPosition().lng(),
                 };
-
+                console.log(position.lat);
+                console.log(position.lng);
                 handleSubmitLocation(position);
             });
         };
@@ -129,9 +128,6 @@ export default function Home() {
         <main className="flex min-h-screen flex-col items-center  bg-green-100">
             <Navbar />
             <ToastContainer autoClose={1500} />
-            <h1 className="text-green-700 text-4xl mt-10 font-bold">
-                Enter information or click on the map
-            </h1>
             <div className="flex items-center flex-wrap justify-center">
                 <SoilDataForm
                     onSubmit={handleSubmit}
@@ -141,6 +137,7 @@ export default function Home() {
 
                 <div style={{ height: "600px", width: "600px" }} ref={mapRef} />
             </div>
+
             {result.length != 0 ? (
                 <h1 className="text-green-700 text-4xl font-bold mb-10">
                     Recommended Crops
@@ -148,28 +145,29 @@ export default function Home() {
             ) : (
                 <></>
             )}
-    {result.map(([crop, percent], index) => (
-       percent > 0 ? (
-            <div
-                key={index}
-                className="text-black w-96 bg-green-200 mb-2 p-3"
-            >
-                <div className="flex justify-between">
-                    <div>{crop}</div>
-                    <div>{crop === 'best_month' ? percent : `${percent}%`}</div>
-                </div>
-            </div>
-        ) : null
-    ))}
-    {bestMonth ? (
-        <div
-            className="text-black w-96 bg-green-200 mb-2 p-3"   
-        >
-            <div className="flex justify-between">
-                <div>{bestMonth}</div>
-            </div>
-        </div>
-    ) : null}
+            {result.map(([crop, percent], index) =>
+                percent > 0 ? (
+                    <div key={index} className="text-black  mb-2 p-3 w-[880px]">
+                        <div className="flex justify-between bg-green-200 p-2  items-center border border-black rounded-md">
+                            <div className="flex">
+                                <div className="mr-2">
+                                    {crop === "best_month"
+                                        ? percent
+                                        : `${percent}%`}
+                                    :
+                                </div>
+                                <div className="mr-2">{crop}</div>
+                            </div>
+                            {bestMonth ? (
+                                <div className="flex justify-between text-black">
+                                    <div>{bestMonth}</div>
+                                </div>
+                            ) : null}
+                        </div>
+                    </div>
+                ) : null
+            )}
+
             <div className="w-full h-24 bg-green-100 mt-20"></div>
         </main>
     );

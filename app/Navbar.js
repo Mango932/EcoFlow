@@ -20,7 +20,7 @@ const Navbar = () => {
         {
             id: 5,
             link: "https://github.com/Mango932/EcoFlow",
-            title: "Contact",
+            title: "Github",
         },
     ];
 
