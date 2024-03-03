@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Slider } from "@nextui-org/react";
 
 const SoilDataForm = ({ onSubmit, formData, handleChanges }) => {
     const handleChange = (e) => {
@@ -24,6 +23,7 @@ const SoilDataForm = ({ onSubmit, formData, handleChanges }) => {
                 <label className="text-green-900 mb-1">
                     Nitrogen ratio in soil (%):
                 </label>
+
                 <input
                     type="number"
                     name="N"
@@ -87,7 +87,9 @@ const SoilDataForm = ({ onSubmit, formData, handleChanges }) => {
                 />
             </div>
             <div className="flex flex-col">
-                <label className="text-gray-800 mb-1">Past Year's Rainfall (mm):</label>
+                <label className="text-gray-800 mb-1">
+                    Past Year's Rainfall (mm):
+                </label>
                 <input
                     type="number"
                     name="rainfall"
