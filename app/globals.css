@@ -31,3 +31,14 @@ body {
     text-wrap: balance;
   }
 }
+
+input[type="range"].range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+  border: 1px solid black;
+}

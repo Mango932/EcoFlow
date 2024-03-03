@@ -63,6 +63,28 @@ const SoilDataForm = ({ onSubmit, formData, handleChanges }) => {
                 />
             </div>
             <div className="flex flex-col">
+                <label className="text-gray-800 mb-1">pH value:</label>
+                <input
+                    type="range"
+                    name="ph"
+                    min="0"
+                    max="14"
+                    step="0.1"
+                    value={formData.ph}
+                    onChange={handleChange}
+                    className="w-full range-input"
+                    style={{ 
+                        appearance: 'none',
+                        height: '5px',
+                        borderRadius: '5px',
+                        cursor: 'pointer',
+                        background: 'linear-gradient(to right, #FF9999, #99C2FF)'
+                    }}
+                />
+                <span className="text-gray-800">{formData.ph}</span>
+            </div>
+
+            <div className="flex flex-col">
                 <label className="text-gray-800 mb-1">Temperature (°C):</label>
                 <input
                     type="number"
@@ -78,16 +100,6 @@ const SoilDataForm = ({ onSubmit, formData, handleChanges }) => {
                     type="number"
                     name="humidity"
                     value={formData.humidity}
-                    onChange={handleChange}
-                    className="px-4 py-2 bg-white border border-gray-300 rounded-md"
-                />
-            </div>
-            <div className="flex flex-col">
-                <label className="text-gray-800 mb-1">pH value:</label>
-                <input
-                    type="number"
-                    name="ph"
-                    value={formData.ph}
                     onChange={handleChange}
                     className="px-4 py-2 bg-white border border-gray-300 rounded-md"
                 />
