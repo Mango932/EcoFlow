@@ -90,7 +90,6 @@ export default function Home() {
                     lng: newMarker.getPosition().lng(),
                 };
 
-                console.log(position);
                 handleSubmitLocation(position);
             });
         };
@@ -118,7 +117,7 @@ export default function Home() {
         <main className="flex min-h-screen flex-col items-center  bg-green-100">
             <Navbar />
             <h1 className="text-green-700 text-4xl mt-10 font-bold">
-                Enter inforation or click on the map
+                Enter information or click on the map
             </h1>
             <div className="flex items-center flex-wrap justify-center">
                 <SoilDataForm
