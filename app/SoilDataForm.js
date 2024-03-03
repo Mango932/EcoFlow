@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-const SoilDataForm = ({ onSubmit, formData }) => {
+const SoilDataForm = ({ onSubmit, formData, handleChanges }) => {
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData((prevState) => ({
+        handleChanges((prevState) => ({
             ...prevState,
             [name]: value,
         }));

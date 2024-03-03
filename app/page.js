@@ -88,8 +88,8 @@ export default function Home() {
                     lat: newMarker.getPosition().lat(),
                     lng: newMarker.getPosition().lng(),
                 };
-                
-                console.log(position)
+
+                console.log(position);
                 handleSubmitLocation(position);
             });
         };
@@ -107,6 +107,10 @@ export default function Home() {
         rainfall: "",
     });
 
+    const handleFormChange = (newFormData) => {
+        setFormData(newFormData);
+    };
+
     return (
         <main className="flex min-h-screen flex-col items-center  bg-green-100">
             <Navbar />
@@ -114,7 +118,11 @@ export default function Home() {
                 Enter inforation or click on the map
             </h1>
             <div className="flex items-center flex-wrap justify-center">
-                <SoilDataForm onSubmit={handleSubmit} formData={formData} />
+                <SoilDataForm
+                    onSubmit={handleSubmit}
+                    formData={formData}
+                    handleChanges={handleFormChange}
+                />
 
                 <div style={{ height: "600px", width: "600px" }} ref={mapRef} />
             </div>
