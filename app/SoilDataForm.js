@@ -86,7 +86,7 @@ const SoilDataForm = ({ onSubmit, formData, handleChanges }) => {
                 />
             </div>
             <div className="flex flex-col">
-                <label className="text-gray-800 mb-1">Rainfall (mm):</label>
+                <label className="text-gray-800 mb-1">Past Month's Rainfall (mm):</label>
                 <input
                     type="number"
                     name="rainfall"

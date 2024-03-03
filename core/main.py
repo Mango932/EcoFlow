@@ -39,7 +39,6 @@ class RequestHandler(BaseHTTPRequestHandler):
         recommendations = crop_recommendations.get_crop_recommendation(
             data['N'], data['P'], data['K'], data['temperature'], 
             data['humidity'], data['ph'], data['rainfall'])
-        print(recommendations)
 
         self._set_headers()
         response = json.dumps({'recommendations': recommendations}).encode('utf-8')
