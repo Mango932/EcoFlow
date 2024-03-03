@@ -37,7 +37,11 @@ def get_averages(data):
 
 # Get the API key from the apikey.json file
 def get_APIKEY():
-    with open('api/apikey.json') as f:
+    with open('apikey.json') as f:
         data = json.load(f)
     api_key = data['APIKEY']
     return api_key
+
+# Example usage
+weather_data = get_weather_data(37.7749, -122.4194)
+print(weather_data)
