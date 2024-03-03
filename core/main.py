@@ -7,15 +7,6 @@ from model.crop_recommendation import CropRecommendation
 import warnings
 from pages.api.weather_api import get_weather_data
 
-# Using the imported function
-def main():
-    # Example usage
-    weather_data = get_weather_data(lat, lon)
-    # Do something with the weather data
-
-if __name__ == "__main__":
-    main()
-
 class RequestHandler(BaseHTTPRequestHandler):
     def _set_headers(self):
         self.send_response(200)
