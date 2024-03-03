@@ -21,7 +21,7 @@ const SoilDataForm = ({ onSubmit, formData, handleChanges }) => {
         >
             <div className="flex flex-col">
                 <label className="text-green-900 mb-1">
-                    Nitrogen ratio in soil (ppm):
+                    Nitrogen ratio in soil (%):
                 </label>
                 <input
                     type="number"
@@ -33,7 +33,7 @@ const SoilDataForm = ({ onSubmit, formData, handleChanges }) => {
             </div>
             <div className="flex flex-col">
                 <label className="text-gray-800 mb-1">
-                    Phosphorous ratio in soil (ppm):
+                    Phosphorous ratio in soil (%):
                 </label>
                 <input
                     type="number"
@@ -45,7 +45,7 @@ const SoilDataForm = ({ onSubmit, formData, handleChanges }) => {
             </div>
             <div className="flex flex-col">
                 <label className="text-gray-800 mb-1">
-                    Potassium ratio (ppm):
+                    Potassium ratio (%):
                 </label>
                 <input
                     type="number"
