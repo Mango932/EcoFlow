@@ -83,6 +83,14 @@ export default function Home() {
                     map: map,
                 });
                 marker = newMarker;
+
+                const position = {
+                    lat: newMarker.getPosition().lat(),
+                    lng: newMarker.getPosition().lng(),
+                };
+                
+                console.log(position)
+                handleSubmitLocation(position);
             });
         };
 
