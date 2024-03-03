@@ -22,10 +22,13 @@ class CropRecommendation:
         return prediction[0]
 
     def get_crop_recommendation(self, N, P, k, temperature, humidity, ph, rainfall):
-        predict = self.recommendation(N, P, k, temperature, humidity, ph, rainfall)
-        if predict[0] in self.crop_dict:
-            crop = self.crop_dict[predict[0]]
-            return "{} is a best crop to be cultivated".format(crop)
-        else:
-            return "Sorry are not able to recommend a proper crop for this environment"
+        N, P, k, temperature, humidity, ph, rainfall = float(N), float(P), float(k), float(temperature), float(humidity), float(ph), float(rainfall)
+        features = np.array([[N, P, k, temperature, humidity, ph, rainfall]])
+        probabilities = self.classifier.predict_proba(features)[0]
+        
+        crop_scores = [(self.crop_dict[i + 1], round(score * 100, 2)) for i, score in enumerate(probabilities)]
+        sorted_crop_scores = sorted(crop_scores, key=lambda x: x[1], reverse=True)
+        return sorted_crop_scores
+
+
 

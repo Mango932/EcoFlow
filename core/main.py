@@ -24,14 +24,16 @@ class RequestHandler(BaseHTTPRequestHandler):
         data = json.loads(post_data.decode('utf-8'))
         #! handle data here
         print("Received data:", data)
-        crop_recommendation = CropRecommendation("data/training_sets/X_train.csv", "data/training_sets/Y_train.csv")
-        recommendation = crop_recommendation.get_crop_recommendation(
+
+        crop_recommendations = CropRecommendation("data/training_sets/X_train.csv",
+         "data/training_sets/Y_train.csv")
+        recommendations = crop_recommendations.get_crop_recommendation(
             data['N'], data['P'], data['K'], data['temperature'], 
             data['humidity'], data['ph'], data['rainfall'])
-        print(recommendation)
+        print(recommendations)
 
         self._set_headers()
-        response = json.dumps({'message': 'Data received'}).encode('utf-8')
+        response = json.dumps({'recommendations': recommendations}).encode('utf-8')
         self.wfile.write(response)
 
 def run(server_class=HTTPServer, handler_class=RequestHandler, port=8000):
