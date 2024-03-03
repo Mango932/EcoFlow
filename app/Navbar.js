@@ -9,20 +9,23 @@ const Navbar = () => {
     const links = [
         {
             id: 1,
-            link: "home",
+            link: "/",
+            title: "Home",
         },
         {
             id: 2,
-            link: "about",
+            link: "/about",
+            title: "About",
         },
         {
             id: 5,
-            link: "contact",
+            link: "https://github.com/Mango932/EcoFlow",
+            title: "Contact",
         },
     ];
 
     return (
-        <div className="flex justify-between items-center w-full px-20 py-1 text-white nav bg-green-200 ">
+        <div className="flex justify-around items-center w-full px-20 py-5 text-white nav bg-green-200 ">
             <div className="">
                 <a href="" target="_blank" rel="noreferrer">
                     <Image
@@ -35,12 +38,12 @@ const Navbar = () => {
             </div>
 
             <div className="hidden md:flex">
-                {links.map(({ id, link }) => (
+                {links.map(({ id, link, title }) => (
                     <li
                         key={id}
-                        className="nav-links px-4 cursor-pointer capitalize font-medium text-green-600 hover:scale-105 hover:text-green-800 duration-200 link-underline flex"
+                        className="nav-links px-4 cursor-pointer capitalize font-medium text-green-700 hover:scale-105 hover:text-green-800 duration-200 link-underline flex text-xl"
                     >
-                        <Link href={link}>{link}</Link>
+                        <Link href={link}>{title}</Link>
                     </li>
                 ))}
             </div>

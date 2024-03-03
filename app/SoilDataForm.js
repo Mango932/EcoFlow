@@ -1,16 +1,6 @@
 import React, { useState } from "react";
 
-const SoilDataForm = ({ onSubmit }) => {
-    const [formData, setFormData] = useState({
-        N: "",
-        P: "",
-        K: "",
-        temperature: "",
-        humidity: "",
-        ph: "",
-        rainfall: "",
-    });
-
+const SoilDataForm = ({ onSubmit, formData }) => {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevState) => ({
@@ -30,11 +20,11 @@ const SoilDataForm = ({ onSubmit }) => {
             className=" p-6 rounded-lg space-y-4 text-gray-800 "
         >
             <div className="flex flex-col">
-                <label className="text-gray-800 mb-1">
-                    Nitrogen (N) ratio:
+                <label className="text-green-900 mb-1">
+                    Nitrogen ratio in soil (ppm):
                 </label>
                 <input
-                    type="text"
+                    type="number"
                     name="N"
                     value={formData.N}
                     onChange={handleChange}
@@ -43,10 +33,10 @@ const SoilDataForm = ({ onSubmit }) => {
             </div>
             <div className="flex flex-col">
                 <label className="text-gray-800 mb-1">
-                    Phosphorous (P) ratio:
+                    Phosphorous ratio in soil (ppm):
                 </label>
                 <input
-                    type="text"
+                    type="number"
                     name="P"
                     value={formData.P}
                     onChange={handleChange}
@@ -55,10 +45,10 @@ const SoilDataForm = ({ onSubmit }) => {
             </div>
             <div className="flex flex-col">
                 <label className="text-gray-800 mb-1">
-                    Potassium (K) ratio:
+                    Potassium ratio (ppm):
                 </label>
                 <input
-                    type="text"
+                    type="number"
                     name="K"
                     value={formData.K}
                     onChange={handleChange}
@@ -68,7 +58,7 @@ const SoilDataForm = ({ onSubmit }) => {
             <div className="flex flex-col">
                 <label className="text-gray-800 mb-1">Temperature (°C):</label>
                 <input
-                    type="text"
+                    type="number"
                     name="temperature"
                     value={formData.temperature}
                     onChange={handleChange}
@@ -78,7 +68,7 @@ const SoilDataForm = ({ onSubmit }) => {
             <div className="flex flex-col">
                 <label className="text-gray-800 mb-1">Humidity (%):</label>
                 <input
-                    type="text"
+                    type="number"
                     name="humidity"
                     value={formData.humidity}
                     onChange={handleChange}
@@ -88,7 +78,7 @@ const SoilDataForm = ({ onSubmit }) => {
             <div className="flex flex-col">
                 <label className="text-gray-800 mb-1">pH value:</label>
                 <input
-                    type="text"
+                    type="number"
                     name="ph"
                     value={formData.ph}
                     onChange={handleChange}
@@ -98,7 +88,7 @@ const SoilDataForm = ({ onSubmit }) => {
             <div className="flex flex-col">
                 <label className="text-gray-800 mb-1">Rainfall (mm):</label>
                 <input
-                    type="text"
+                    type="number"
                     name="rainfall"
                     value={formData.rainfall}
                     onChange={handleChange}

@@ -1,11 +1,9 @@
 "use client";
 
-import DragAndDrop from "./DragAndDrop";
 import Navbar from "./Navbar";
 import { useEffect, useRef, useState } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
 import SoilDataForm from "./SoilDataForm";
-import { isNull } from "util";
 
 export default function Home() {
     const handleSubmit = async (formData) => {
@@ -91,14 +89,28 @@ export default function Home() {
         initMap();
     }, []);
 
+    const [formData, setFormData] = useState({
+        N: "",
+        P: "",
+        K: "",
+        temperature: "",
+        humidity: "",
+        ph: "",
+        rainfall: "",
+    });
+
     return (
         <main className="flex min-h-screen flex-col items-center  bg-green-100">
             <Navbar />
+            <h1 className="text-green-700 text-4xl mt-10 font-bold">
+                Enter inforation or click on the map
+            </h1>
             <div className="flex items-center flex-wrap justify-center">
-                <SoilDataForm onSubmit={handleSubmit} />
+                <SoilDataForm onSubmit={handleSubmit} formData={formData} />
 
                 <div style={{ height: "600px", width: "600px" }} ref={mapRef} />
             </div>
+            <div className="w-full h-24 bg-green-100 mt-20"></div>
         </main>
     );
 }
