@@ -29,6 +29,3 @@ The trained Random Forest model can be used to make crop recommendations based o
 
 ## Sample Prediction
 Using the `recommendation` function, the model predicts that Kidneybeans is the best crop to be cultivated given N=40, P=50, K=50, temperature=40.0, humidity=20, pH=100, and rainfall=100.
-
-## Model Serialization
-The trained Random Forest model is serialized using pickle for future use.
